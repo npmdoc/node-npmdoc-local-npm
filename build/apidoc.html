@@ -1,0 +1,606 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/nolanlawson/local-npm#readme"
+
+    >local-npm (v1.6.0)</a>
+</h1>
+<h4>Local and offline-first npm mirror</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.local-npm">module local-npm</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.local-npm.local-npm">
+            function <span class="apidocSignatureSpan"></span>local-npm
+            <span class="apidocSignatureSpan">(argv)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">local-npm.</span>logger</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.local-npm.logger">module local-npm.logger</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.local-npm.logger.cached">
+            function <span class="apidocSignatureSpan">local-npm.logger.</span>cached
+            <span class="apidocSignatureSpan">(pkg, version)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.local-npm.logger.code">
+            function <span class="apidocSignatureSpan">local-npm.logger.</span>code
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.local-npm.logger.error">
+            function <span class="apidocSignatureSpan">local-npm.logger.</span>error
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.local-npm.logger.hit">
+            function <span class="apidocSignatureSpan">local-npm.logger.</span>hit
+            <span class="apidocSignatureSpan">(pkg, version)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.local-npm.logger.info">
+            function <span class="apidocSignatureSpan">local-npm.logger.</span>info
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.local-npm.logger.miss">
+            function <span class="apidocSignatureSpan">local-npm.logger.</span>miss
+            <span class="apidocSignatureSpan">(pkg, version)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.local-npm.logger.silly">
+            function <span class="apidocSignatureSpan">local-npm.logger.</span>silly
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.local-npm.logger.status">
+            function <span class="apidocSignatureSpan">local-npm.logger.</span>status
+            <span class="apidocSignatureSpan">(seq, percent)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.local-npm.logger.time">
+            function <span class="apidocSignatureSpan">local-npm.logger.</span>time
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.local-npm.logger.timeEnd">
+            function <span class="apidocSignatureSpan">local-npm.logger.</span>timeEnd
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.local-npm.logger.warn">
+            function <span class="apidocSignatureSpan">local-npm.logger.</span>warn
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.local-npm" id="apidoc.module.local-npm">module local-npm</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.local-npm.local-npm" id="apidoc.element.local-npm.local-npm">
+        function <span class="apidocSignatureSpan"></span>local-npm
+        <span class="apidocSignatureSpan">(argv)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">local-npm = function (argv) {
+  var FAT_REMOTE = argv.r;
+  var SKIM_REMOTE = argv.R;
+  var port = argv.p;
+  var pouchPort = argv.P;
+  var localBase = argv.u;
+  localBase = localBase.replace(/:5080$/, &#x27;:&#x27; + port); // port is configurable
+  var loglevel  = argv.l;
+  var directory = path.resolve(argv.d);
+  mkdirp.sync(directory);
+  loglevel = levels(loglevel);
+  var startingTimeout = 1000;
+  logger.silly(&#x27;\nWelcome!&#x27;);
+  logger.info(&#x27;To start using local-npm, just run: &#x27;);
+  logger.code(&#x27;\n  $ npm set registry &#x27; + localBase);
+  logger.info(&#x27;\nTo switch back, you can run: &#x27;);
+  logger.code(&#x27;\n  $ npm set registry &#x27; + FAT_REMOTE);
+  var backoff = 1.1;
+  var app = express();
+  var PouchDB;
+
+  PouchDB = pouchServerLite(argv).PouchDB;
+
+  var skimRemote = new PouchDB(SKIM_REMOTE);
+  var skimLocal = new PouchDB(&#x27;skimdb&#x27;, {
+    auto_compaction: true
+  });
+  var db = level(path.resolve(directory, &#x27;binarydb&#x27;));
+
+
+  if (loglevel &#x3e; 1) {
+    app.use(morgan(&#x27;dev&#x27;));
+  }
+  app.use(compression());
+  app.use(favicon(__dirname + &#x27;/favicon.ico&#x27;));
+
+  //
+  // rudimentary UI based on npm-browser
+  //
+  logger.info(&#x27;\nA simple npm-like UI is available here: http://127.0.0.1:&#x27; + port + &#x27;/_browse&#x27;);
+
+  app.use(&#x27;/_browse&#x27;, express.static(__dirname + &#x27;/www&#x27;));
+  function redirectToSkimdb(req, res) {
+    var skimUrl = &#x27;http://localhost:&#x27; + pouchPort + &#x27;/skimdb&#x27;;
+    var get = request.get(req.originalUrl.replace(/^\/_skimdb/, skimUrl));
+    get.on(&#x27;error&#x27;, function (err) {
+      logger.warn(&#x22;couldn&#x27;t proxy to skimdb&#x22;);
+      logger.warn(err);
+    });
+    get.pipe(res);
+  }
+  app.get(&#x27;/_skimdb&#x27;, redirectToSkimdb);
+  app.get(&#x27;/_skimdb*&#x27;, redirectToSkimdb);
+
+  app.get(&#x27;/&#x27;, function (req, res) {
+    Promise.all([skimLocal.info(), getCount()]).then(function (resp) {
+
+      res.json({
+        &#x27;local-npm&#x27;: &#x27;welcome&#x27;,
+        version: pkg.version,
+        db: resp[0],
+        tarballs: resp[1]
+      });
+    });
+  });
+
+
+  //
+  // utils
+  //
+
+  function massageMetadata(urlBase, doc) {
+    var name = doc.name;
+    var versions = Object.keys(doc.versions);
+    for (var i = 0, len = versions.length; i &#x3c; len; i++) {
+      var version = versions[i];
+      if (!semver.valid(version)) {
+        // apparently some npm modules like handlebars
+        // have invalid semver ranges, and npm deletes them
+        // on-the-fly
+        delete doc.versions[version];
+      } else {
+        var tgz = urlBase + &#x27;/&#x27; + &#x27;tarballs/&#x27; + name + &#x27;/&#x27; + version + &#x27;.tgz&#x27;;
+        doc.versions[version].dist.tarball = tgz;
+      }
+    }
+    return doc;
+  }
+
+  function sendBinary(res, buffer) {
+    res.set(&#x27;content-type&#x27;, &#x27;application/octet-stream&#x27;);
+    res.set(&#x27;content-length&#x27;, buffer.length);
+    return res.send(buffer);
+  }
+
+  function cacheResponse(res, etag) {
+    // do this to be more like registry.npmjs.com. not sure if it
+    // actually has a benefit, though
+    res.set(&#x27;ETag&#x27;, &#x27;&#x22;&#x27; + etag + &#x27;&#x22;&#x27;);
+    res.set(&#x27;Cache-Control&#x27;, &#x27;max-age=300&#x27;);
+  }
+
+  // TODO: this is an error-prone way to check this. We should probably
+  // send an HTTP request to it and check the response to detect local-npm.
+  var fatRemoteIsAnotherLocalNpm =
+    FAT_REMOTE !== &#x27;https://registry.npmjs.org&#x27; &#x26;&#x26;
+    FAT_REMOTE !== &#x27;https://registry.npmjs.org/&#x27; &#x26;&#x26;
+    FAT_REMOTE !== &#x27;http://registry.npmjs.org&#x27; &#x26;&#x26;
+    FAT_REMOTE !== &#x27;http://registry.npmjs.org/&#x27;;
+
+  //
+  // actual server logic
+  //
+  app.get(&#x27;/:name/:version&#x27;, function (req, res) {
+    skimLocal.get(req.params.name).catch(function () {
+      return skimRemote.get(req.params.name);
+    }).then(function (doc) {
+      var packageMetadata = massageMetadata(localBase, doc);
+      var versionMetadata = findVersion(packageMetadata, req.params.version);
+      if (versionMetadata) {
+        cacheResponse(res, doc._rev);
+        res.json(versionMetadata);
+      } else {
+        res.status(404).json({
+          error: &#x27;version not found: &#x27; + req.params.version
+        });
+      }
+    }).catch(function () {
+      request.get(FAT_REMOTE + req.url)
+          .on(&#x27;error&#x27;, function(err) {
+            logger.warn(&#x27;error getting data for package:&#x27; + req.params.name + &#x27;version: &#x27;+req.pa ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.local-npm.logger" id="apidoc.module.local-npm.logger">module local-npm.logger</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.local-npm.logger.cached" id="apidoc.element.local-npm.logger.cached">
+        function <span class="apidocSignatureSpan">local-npm.logger.</span>cached
+        <span class="apidocSignatureSpan">(pkg, version)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cached = function (pkg, version) {
+  if (level &#x3e; 1) {
+    log(&#x27;downloaded &#x27;.grey + pkg.green + &#x27; at version &#x27;.grey + version.green +
+      &#x27; and saved it locally&#x27;.grey);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.local-npm.logger.code" id="apidoc.element.local-npm.logger.code">
+        function <span class="apidocSignatureSpan">local-npm.logger.</span>code
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">code = function (msg) {
+  msg = wrap(msg);
+  if (level &#x3e; 1) {
+    log(msg.white);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.local-npm.logger.error" id="apidoc.element.local-npm.logger.error">
+        function <span class="apidocSignatureSpan">local-npm.logger.</span>error
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">error = function (msg) {
+  msg = wrap(msg);
+  log(msg.red);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+app.use(pouchDBApp);
+
+app.listen(port, function () {
+  logger.info(&#x27;\nPouchDB Server listening on port &#x27; + port + &#x27;.&#x27;);
+  logger.info(&#x27;Navigate to http://localhost:&#x27; + port + &#x27;/_utils for the Fauxton UI.\n&#x27;);
+}).on(&#x27;error&#x27;, /* istanbul ignore next */ function (e) {
+  if (e.code === &#x27;EADDRINUSE&#x27;) {
+    logger.<span class="apidocCodeKeywordSpan">error</span>(&#x27;\nError: Port &#x27; + port + &#x27; is already in use.&#x27;);
+    logger.error(&#x27;Try another one, e.g. pouchdb-server -p &#x27; +
+      (parseInt(port) + 1) + &#x27;\n&#x27;);
+  } else {
+    logger.error(&#x27;Uncaught error: &#x27; + e);
+    logger.error(e.stack);
+  }
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.local-npm.logger.hit" id="apidoc.element.local-npm.logger.hit">
+        function <span class="apidocSignatureSpan">local-npm.logger.</span>hit
+        <span class="apidocSignatureSpan">(pkg, version)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hit = function (pkg, version) {
+  if (level &#x3e; 1) {
+    log(&#x27;found tarball for &#x27;.grey + pkg.green + &#x27; at version &#x27;.grey +
+      version.green);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.local-npm.logger.info" id="apidoc.element.local-npm.logger.info">
+        function <span class="apidocSignatureSpan">local-npm.logger.</span>info
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">info = function (msg) {
+  msg = wrap(msg);
+  if (level &#x3e; 1) {
+    log(msg.cyan);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// hacky, but there doesn&#x27;t seem to be any other way to prefix the log file
+fs.writeFileSync(configFile, JSON.stringify({log: {file: logFile}}), &#x27;utf-8&#x27;);
+var pouchDBApp = expressPouchDB({ configPath: configFile });
+pouchDBApp.setPouchDB(ScopedPouchDB);
+app.use(pouchDBApp);
+
+app.listen(port, function () {
+  logger.<span class="apidocCodeKeywordSpan">info</span>(&#x27;\nPouchDB Server listening on port &#x27; + port + &#x27;.&#x27;);
+  logger.info(&#x27;Navigate to http://localhost:&#x27; + port + &#x27;/_utils for the Fauxton UI.\n&#x27;);
+}).on(&#x27;error&#x27;, /* istanbul ignore next */ function (e) {
+  if (e.code === &#x27;EADDRINUSE&#x27;) {
+    logger.error(&#x27;\nError: Port &#x27; + port + &#x27; is already in use.&#x27;);
+    logger.error(&#x27;Try another one, e.g. pouchdb-server -p &#x27; +
+      (parseInt(port) + 1) + &#x27;\n&#x27;);
+  } else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.local-npm.logger.miss" id="apidoc.element.local-npm.logger.miss">
+        function <span class="apidocSignatureSpan">local-npm.logger.</span>miss
+        <span class="apidocSignatureSpan">(pkg, version)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">miss = function (pkg, version) {
+  if (level &#x3e; 1) {
+    log(&#x27;not cached &#x27;.grey + pkg.green + &#x27; at version &#x27;.grey + version.green +
+      &#x27;, downloading...&#x27;.grey);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.local-npm.logger.silly" id="apidoc.element.local-npm.logger.silly">
+        function <span class="apidocSignatureSpan">local-npm.logger.</span>silly
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">silly = function (msg) {
+  msg = wrap(msg);
+  if (level &#x3e; 1) {
+    log(msg.rainbow.bold);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.local-npm.logger.status" id="apidoc.element.local-npm.logger.status">
+        function <span class="apidocSignatureSpan">local-npm.logger.</span>status
+        <span class="apidocSignatureSpan">(seq, percent)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">status = function (seq, percent) {
+  if (level &#x3e; 1) {
+    log(&#x27;Replicating skimdb, last_seq is: &#x27;.grey + String(seq).green +
+      &#x27; (&#x27;.grey + String(percent).green + &#x27;%&#x27;.green + &#x27;)&#x27;.grey);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.local-npm.logger.time" id="apidoc.element.local-npm.logger.time">
+        function <span class="apidocSignatureSpan">local-npm.logger.</span>time
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">time = function (msg) {
+  msg = wrap(msg);
+  if (level &#x3e; 2) {
+    console.time(msg);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+return thing.toString();
+}
+
+exports.time = function (msg) {
+msg = wrap(msg);
+if (level &#x3e; 2) {
+  console.<span class="apidocCodeKeywordSpan">time</span>(msg);
+}
+};
+exports.timeEnd = function (msg) {
+msg = wrap(msg);
+if (level &#x3e; 2) {
+  console.timeEnd(msg);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.local-npm.logger.timeEnd" id="apidoc.element.local-npm.logger.timeEnd">
+        function <span class="apidocSignatureSpan">local-npm.logger.</span>timeEnd
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">timeEnd = function (msg) {
+  msg = wrap(msg);
+  if (level &#x3e; 2) {
+    console.timeEnd(msg);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (level &#x3e; 2) {
+  console.time(msg);
+}
+};
+exports.timeEnd = function (msg) {
+msg = wrap(msg);
+if (level &#x3e; 2) {
+  console.<span class="apidocCodeKeywordSpan">timeEnd</span>(msg);
+}
+};
+exports.info = function (msg) {
+msg = wrap(msg);
+if (level &#x3e; 1) {
+  log(msg.cyan);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.local-npm.logger.warn" id="apidoc.element.local-npm.logger.warn">
+        function <span class="apidocSignatureSpan">local-npm.logger.</span>warn
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">warn = function (msg) {
+  msg = wrap(msg);
+  if (level &#x3e; 0) {
+    log(msg.yellow);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
