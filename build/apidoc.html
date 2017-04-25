@@ -350,7 +350,23 @@
       &#x27; and saved it locally&#x27;.grey);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      next();
+    }, function (next) {
+      next();
+      var buffer = Buffer.concat(buffs);
+      logger.timeEnd(&#x27;request.get(&#x27; + dist.tarball + &#x27;)&#x27;);
+      sendBinary(res, buffer);
+      db.put(id, buffer, function (err) {
+        logger.<span class="apidocCodeKeywordSpan">cached</span>(pkgName, pkgVersion);
+        if (err) {
+          logger.info(err);
+        }
+      });
+    }));
+  });
+}).catch(function (err) {
+...</pre></li>
     </ul>
 
 
@@ -368,7 +384,23 @@
     log(msg.white);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var loglevel  = argv.l;
+var directory = path.resolve(argv.d);
+mkdirp.sync(directory);
+loglevel = levels(loglevel);
+var startingTimeout = 1000;
+logger.silly(&#x27;\nWelcome!&#x27;);
+logger.info(&#x27;To start using local-npm, just run: &#x27;);
+logger.<span class="apidocCodeKeywordSpan">code</span>(&#x27;\n  $ npm set registry &#x27; + localBase);
+logger.info(&#x27;\nTo switch back, you can run: &#x27;);
+logger.code(&#x27;\n  $ npm set registry &#x27; + FAT_REMOTE);
+var backoff = 1.1;
+var app = express();
+var PouchDB;
+
+PouchDB = pouchServerLite(argv).PouchDB;
+...</pre></li>
     </ul>
 
 
@@ -418,7 +450,23 @@ app.listen(port, function () {
       version.green);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (!err) {
+  var hash = crypto.createHash(&#x27;sha1&#x27;);
+  hash.update(buffer);
+  if (dist.shasum !== hash.digest(&#x27;hex&#x27;)) {
+    // happens when we write garbage to disk somehow
+    logger.warn(&#x27;hashes don\&#x27;t match, not returning&#x27;);
+  } else {
+    logger.<span class="apidocCodeKeywordSpan">hit</span>(pkgName, pkgVersion);
+    return sendBinary(res, buffer);
+  }
+}
+logger.miss(pkgName, pkgVersion);
+var buffs = [];
+logger.time(&#x27;request.get(&#x27; + dist.tarball + &#x27;)&#x27;);
+request.get(dist.tarball).on(&#x27;error&#x27;, function (err) {
+...</pre></li>
     </ul>
 
 
@@ -437,21 +485,20 @@ app.listen(port, function () {
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-// hacky, but there doesn&#x27;t seem to be any other way to prefix the log file
-fs.writeFileSync(configFile, JSON.stringify({log: {file: logFile}}), &#x27;utf-8&#x27;);
-var pouchDBApp = expressPouchDB({ configPath: configFile });
-pouchDBApp.setPouchDB(ScopedPouchDB);
-app.use(pouchDBApp);
-
-app.listen(port, function () {
-  logger.<span class="apidocCodeKeywordSpan">info</span>(&#x27;\nPouchDB Server listening on port &#x27; + port + &#x27;.&#x27;);
-  logger.info(&#x27;Navigate to http://localhost:&#x27; + port + &#x27;/_utils for the Fauxton UI.\n&#x27;);
-}).on(&#x27;error&#x27;, /* istanbul ignore next */ function (e) {
-  if (e.code === &#x27;EADDRINUSE&#x27;) {
-    logger.error(&#x27;\nError: Port &#x27; + port + &#x27; is already in use.&#x27;);
-    logger.error(&#x27;Try another one, e.g. pouchdb-server -p &#x27; +
-      (parseInt(port) + 1) + &#x27;\n&#x27;);
-  } else {
+localBase = localBase.replace(/:5080$/, &#x27;:&#x27; + port); // port is configurable
+var loglevel  = argv.l;
+var directory = path.resolve(argv.d);
+mkdirp.sync(directory);
+loglevel = levels(loglevel);
+var startingTimeout = 1000;
+logger.silly(&#x27;\nWelcome!&#x27;);
+logger.<span class="apidocCodeKeywordSpan">info</span>(&#x27;To start using local-npm, just run: &#x27;);
+logger.code(&#x27;\n  $ npm set registry &#x27; + localBase);
+logger.info(&#x27;\nTo switch back, you can run: &#x27;);
+logger.code(&#x27;\n  $ npm set registry &#x27; + FAT_REMOTE);
+var backoff = 1.1;
+var app = express();
+var PouchDB;
 ...</pre></li>
     </ul>
 
@@ -470,7 +517,23 @@ app.listen(port, function () {
       &#x27;, downloading...&#x27;.grey);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    // happens when we write garbage to disk somehow
+    logger.warn(&#x27;hashes don\&#x27;t match, not returning&#x27;);
+  } else {
+    logger.hit(pkgName, pkgVersion);
+    return sendBinary(res, buffer);
+  }
+}
+logger.<span class="apidocCodeKeywordSpan">miss</span>(pkgName, pkgVersion);
+var buffs = [];
+logger.time(&#x27;request.get(&#x27; + dist.tarball + &#x27;)&#x27;);
+request.get(dist.tarball).on(&#x27;error&#x27;, function (err) {
+  logger.info(err);
+  res.status(500).send(&#x27;you are offline and this package isn\&#x27;t cached&#x27;);
+}).pipe(through(function (chunk, _, next) {
+  buffs.push(chunk);
+...</pre></li>
     </ul>
 
 
@@ -488,7 +551,23 @@ app.listen(port, function () {
     log(msg.rainbow.bold);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var localBase = argv.u;
+localBase = localBase.replace(/:5080$/, &#x27;:&#x27; + port); // port is configurable
+var loglevel  = argv.l;
+var directory = path.resolve(argv.d);
+mkdirp.sync(directory);
+loglevel = levels(loglevel);
+var startingTimeout = 1000;
+logger.<span class="apidocCodeKeywordSpan">silly</span>(&#x27;\nWelcome!&#x27;);
+logger.info(&#x27;To start using local-npm, just run: &#x27;);
+logger.code(&#x27;\n  $ npm set registry &#x27; + localBase);
+logger.info(&#x27;\nTo switch back, you can run: &#x27;);
+logger.code(&#x27;\n  $ npm set registry &#x27; + FAT_REMOTE);
+var backoff = 1.1;
+var app = express();
+var PouchDB;
+...</pre></li>
     </ul>
 
 
@@ -506,7 +585,24 @@ app.listen(port, function () {
       &#x27; (&#x27;.grey + String(percent).green + &#x27;%&#x27;.green + &#x27;)&#x27;.grey);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}).then(function (doc) {
+  var packageMetadata = massageMetadata(localBase, doc);
+  var versionMetadata = findVersion(packageMetadata, req.params.version);
+  if (versionMetadata) {
+    cacheResponse(res, doc._rev);
+    res.json(versionMetadata);
+  } else {
+    res.<span class="apidocCodeKeywordSpan">status</span>(404).json({
+      error: &#x27;version not found: &#x27; + req.params.version
+    });
+  }
+}).catch(function () {
+  request.get(FAT_REMOTE + req.url)
+      .on(&#x27;error&#x27;, function(err) {
+        logger.warn(&#x27;error getting data for package:&#x27; + req.params.name + &#x27;version: &#x27;+req.params.version + &#
+x27; with error:&#x27;+err);
+...</pre></li>
     </ul>
 
 
@@ -525,21 +621,21 @@ app.listen(port, function () {
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-
-return thing.toString();
-}
-
-exports.time = function (msg) {
-msg = wrap(msg);
-if (level &#x3e; 2) {
-  console.<span class="apidocCodeKeywordSpan">time</span>(msg);
-}
-};
-exports.timeEnd = function (msg) {
-msg = wrap(msg);
-if (level &#x3e; 2) {
-  console.timeEnd(msg);
-}
+          });
+        })
+        .pipe(res);
+  });
+});
+app.get(&#x27;/:name&#x27;, function (req, res) {
+  var name = req.params.name;
+  logger.<span class="apidocCodeKeywordSpan">time</span>(&#x27;1: skimLocal.get(&#x27; + name + &#x27;)&#x27;);
+  skimLocal.get(name).catch(function () {
+    return skimRemote.get(name);
+  }).then(function (doc) {
+    var modifiedDoc = massageMetadata(localBase, doc);
+    logger.timeEnd(&#x27;1: skimLocal.get(&#x27; + name + &#x27;)&#x27;);
+    cacheResponse(res, doc._rev);
+    res.json(modifiedDoc);
 ...</pre></li>
     </ul>
 
@@ -559,21 +655,21 @@ if (level &#x3e; 2) {
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-if (level &#x3e; 2) {
-  console.time(msg);
-}
-};
-exports.timeEnd = function (msg) {
-msg = wrap(msg);
-if (level &#x3e; 2) {
-  console.<span class="apidocCodeKeywordSpan">timeEnd</span>(msg);
-}
-};
-exports.info = function (msg) {
-msg = wrap(msg);
-if (level &#x3e; 1) {
-  log(msg.cyan);
-}
+  app.get(&#x27;/:name&#x27;, function (req, res) {
+var name = req.params.name;
+logger.time(&#x27;1: skimLocal.get(&#x27; + name + &#x27;)&#x27;);
+skimLocal.get(name).catch(function () {
+  return skimRemote.get(name);
+}).then(function (doc) {
+  var modifiedDoc = massageMetadata(localBase, doc);
+  logger.<span class="apidocCodeKeywordSpan">timeEnd</span>(&#x27;1: skimLocal.get(&#x27; + name + &#x27;)&#x27;);
+  cacheResponse(res, doc._rev);
+  res.json(modifiedDoc);
+}).catch(function () {
+  request.get(FAT_REMOTE + req.url)
+      .on(&#x27;error&#x27;, function(err) {
+        logger.warn(&#x27;error getting data for package:&#x27; + name + &#x27; error: &#x27;+err);
+        res.status(500).json({
 ...</pre></li>
     </ul>
 
@@ -592,7 +688,22 @@ if (level &#x3e; 1) {
     log(msg.yellow);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+logger.info(&#x27;\nA simple npm-like UI is available here: http://127.0.0.1:&#x27; + port + &#x27;/_browse&#x27;);
+
+app.use(&#x27;/_browse&#x27;, express.static(__dirname + &#x27;/www&#x27;));
+function redirectToSkimdb(req, res) {
+  var skimUrl = &#x27;http://localhost:&#x27; + pouchPort + &#x27;/skimdb&#x27;;
+  var get = request.get(req.originalUrl.replace(/^\/_skimdb/, skimUrl));
+  get.on(&#x27;error&#x27;, function (err) {
+    logger.<span class="apidocCodeKeywordSpan">warn</span>(&#x22;couldn&#x27;t proxy to skimdb&#x22;);
+    logger.warn(err);
+  });
+  get.pipe(res);
+}
+app.get(&#x27;/_skimdb&#x27;, redirectToSkimdb);
+app.get(&#x27;/_skimdb*&#x27;, redirectToSkimdb);
+...</pre></li>
     </ul>
 
 
