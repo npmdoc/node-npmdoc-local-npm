@@ -1,6 +1,6 @@
 # npmdoc-local-npm
 
-#### api documentation for  [local-npm (v1.6.0)](https://github.com/nolanlawson/local-npm#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-local-npm.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-local-npm) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-local-npm.svg)](https://travis-ci.org/npmdoc/node-npmdoc-local-npm)
+#### basic api documentation for  [local-npm (v1.6.0)](https://github.com/nolanlawson/local-npm#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-local-npm.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-local-npm) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-local-npm.svg)](https://travis-ci.org/npmdoc/node-npmdoc-local-npm)
 
 #### Local and offline-first npm mirror
 
